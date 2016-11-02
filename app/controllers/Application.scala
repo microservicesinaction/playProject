@@ -14,15 +14,9 @@ object RegisterItem {
 }
 
 class Application @Inject()(clientsLogic: ClientLogic, petsLogic: PetLogic) extends Controller {
-  def index = Action { implicit request =>
-    Ok(views.html.index("Sofia"))
-  }
 
   def registerNewPet = Action.async { request =>
-
-    val json: JsValue = request.body.asJson.get
-    val registerItem = json.as[RegisterItem]
-
+    val registerItem = request.body.asJson.get.as[RegisterItem]
     for {
       petId <- petsLogic.addPet(Pet(registerItem.petName, registerItem.petNotes))
       result <- clientsLogic.addClient(Client(registerItem.firstName, registerItem.lastName, petId))

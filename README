@@ -1,49 +1,39 @@
-This is your new Play application
-=================================
+This is your Play application
+=============================
 
-This file will be packaged with your application when using `activator dist`.
+To run tests
+-------------
 
-There are several demonstration files available in this template.
+sbt clean test
 
-Controllers
-===========
+To run
+-------
 
-- HomeController.scala:
+sbt run
 
-  Shows how to handle simple HTTP requests.
+Endpoints
+=========
 
-- AsyncController.scala:
+GET /getAllClients
+--------------------
 
-  Shows how to do asynchronous programming when handling a request.
+returns all clients on the database
 
-- CountController.scala:
+GET /getAllPets
+-----------------
 
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
+returns all clients on the database
 
-Components
-==========
+POST /registerNewPet
+----------------------
 
-- Module.scala:
+example payload:
+{
+    firstName: "Sofia",
+    lastName: "Cole",
+    petName: "Leo",
+    petNotes: "Happy and Healthy"
+}
 
-  Shows how to use Guice to bind all the components needed by your application.
+adds a client and a pet to the database
 
-- Counter.scala:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- ApplicationTimer.scala:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-Filters
-=======
-
-- Filters.scala:
-
-  Creates the list of HTTP filters used by your application.
-
-- ExampleFilter.scala
-
-  A simple filter that adds a header to every response.

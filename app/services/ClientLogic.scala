@@ -14,11 +14,9 @@ object Client {
 class ClientLogic @Inject()(clientsRepo: ClientsRepo) {
   import clientsRepo.dbConfig.driver.api._
 
-  def addClient(newClient: Client): Future[Unit] = {
+  def addClient(newClient: Client): Future[Unit] =
     clientsRepo.db.run(clientsRepo.clients += ClientRecord(0, newClient.firstName, newClient.lastName, newClient.petId)).map(_=>())
-  }
 
-  def returnAllClients(): Future[List[Client]] = {
+  def returnAllClients(): Future[List[Client]] =
     clientsRepo.db.run(clientsRepo.clients.result).map(_.map(client => Client(client.firstName, client.lastName, client.petId)).toList)
-  }
 }
