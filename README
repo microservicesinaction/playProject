@@ -29,10 +29,10 @@ POST /registerNewPet
 
 example payload:
 {
-    firstName: "Sofia",
-    lastName: "Cole",
-    petName: "Leo",
-    petNotes: "Happy and Healthy"
+    "firstName": "fName",
+    "lastName": "lName",
+    "petName": "Floofy",
+    "petNotes": "Happy, Hairy and Healthy"
 }
 
 adds a client and a pet to the database
